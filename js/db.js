@@ -3,6 +3,7 @@ const db = {
 };
 
 function saveCustomer(customer) {
+    db.customers.push(customer);
 }
 
 function getCustomers() {
