@@ -6,6 +6,7 @@ function saveCustomer(customer) {
 }
 
 function getCustomers() {
+    return db.customers;
 }
 
 function removeCustomer(id) {
