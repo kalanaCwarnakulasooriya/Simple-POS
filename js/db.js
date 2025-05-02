@@ -24,3 +24,27 @@ function updateCustomer(updateCustomer) {
 function getCustomerById(id) {
     return db.customers.find((c) => c.id === id);
 }
+
+const db = {
+    items: []
+};
+
+function saveItem(item) {
+
+}
+
+function getItems() {
+    return db.items;
+}
+
+function removeItem(id) {
+
+}
+
+function updateItem(updateItem) {
+
+}
+
+function getItemById(id) {
+
+}
