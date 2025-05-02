@@ -14,7 +14,12 @@ function removeCustomer(id) {
 }
 
 function updateCustomer(customer) {
+    const index = db.customers.findIndex((c) => c.id === customer.id);
+    if (index !== -1){
+        db.customers[index] = customer;
+    }
 }
 
-function getCustomerById(id) {
+function getCustomerById(c) {
+    return db.customers.find((c) => c.id === c.id);
 }

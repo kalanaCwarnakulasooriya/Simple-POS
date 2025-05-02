@@ -7,9 +7,14 @@ $(document).ready(function () {
         const name = $(`#name`).val();
         const email = $(`#email`).val();
 
-        const newCustomer = new CustomerModel(Date.now().toString(), name, email);
-        saveCustomer(newCustomer);
+        if (id) {
+            updateCustomer(new CustomerModel(id, name, email));
+        }else {
+            const newCustomer = new CustomerModel(Date.now().toString(), name, email);
+            saveCustomer(newCustomer);
+        }
         this.reset();
+        $(`#customerId`).val('');
         loadCustomers();
     })
 });
@@ -25,10 +30,19 @@ function loadCustomers() {
             <td>${customer.name}</td>
             <td>${customer.email}</td>
             <td>
-                <button type="button">Edit</button>
+                <button onclick="editCustomer(${customer.id})" type="button">Edit</button>
                 <button type="button">Delete</button>
             </td>
         </tr>
         `)
     })
+}
+
+function editCustomer(id){
+    const customer = getCustomerById(id);
+    if (customer) {
+        $('#customerId').val(customer.id);
+        $('#name').val(customer.name);
+        $('#email').val(customer.email);
+    }
 }
