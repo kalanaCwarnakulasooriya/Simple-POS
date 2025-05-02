@@ -20,7 +20,7 @@ $(document).ready(function () {
 });
 
 function loadCustomers() {
-    const customers = getCustomers();
+    const customers= getCustomers();
     const  tbody = $('#customer-table tbody');
     tbody.empty();
     customers.forEach((customer)=>{
@@ -30,10 +30,11 @@ function loadCustomers() {
             <td>${customer.name}</td>
             <td>${customer.email}</td>
             <td>
-            <button onclick = "editCustomer('${customer.id}')" type = "button">Edit</button>
-            <button onclick = "deleteCustomer('${customer.id}')" type = "button">Delete</button>
+            <button onclick="editCustomer('${customer.id}')" type="button">Edit</button>
+            <button onclick="deleteCustomer('${customer.id}')" type="button">Delete</button>
             </td>
-        </tr>`)
+        </tr>
+        `)
     })
 }
 

@@ -11,15 +11,16 @@ function getCustomers() {
 }
 
 function removeCustomer(id) {
+    db.customers = db.customers.filter((c) => c.id !== id);
 }
 
-function updateCustomer(customer) {
-    const index = db.customers.findIndex((c) => c.id === customer.id);
+function updateCustomer(updateCustomer) {
+    const index = db.customers.findIndex((c) => c.id === updateCustomer.id);
     if (index !== -1){
-        db.customers[index] = customer;
+        db.customers[index] = updateCustomer;
     }
 }
 
-function getCustomerById(c) {
-    return db.customers.find((c) => c.id === c.id);
+function getCustomerById(id) {
+    return db.customers.find((c) => c.id === id);
 }
