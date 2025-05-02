@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Section</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div>
+    <h1>Customer Management</h1>
+    <form id="customer-form">
+      <input type="hidden" id="customerId">
+      <input  type="text" id="name" placeholder="Name" required>
+      <input  type="email" id="email" placeholder="Email" required>
+      <button type="submit">Save</button>
+    </form>
+
+    <table id="customer-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="customer-list"></tbody>
+    </table>
+
+</div>
+<script src=""></script>
+<script src="js/db.js"></script>
+<script src="js/customer-model.js"></script>
+<script src="js/customer-controller.js"></script>
+</body>
+</html>
