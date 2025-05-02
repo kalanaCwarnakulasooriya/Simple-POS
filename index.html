@@ -28,6 +28,32 @@
       <tbody id="customer-list"></tbody>
     </table>
 </div>
+
+<div>
+    <h2>Item Management</h2>
+
+    <form id="item-form">
+      <input type="hidden" id="itemId">
+      <input type="text" id="item-name" placeholder="Item Name" required>
+      <input type="number" id="quantity" placeholder="Quantity" required>
+      <input type="number" id="price" placeholder="Price" required>
+      <button type="submit">Save</button>
+    </form>
+
+    <table id="item-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="item-list"></tbody>
+    </table>
+</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="js/db.js"></script>
 <script src="js/customer-model.js"></script>
