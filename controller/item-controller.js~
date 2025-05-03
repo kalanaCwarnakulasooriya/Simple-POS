@@ -15,7 +15,7 @@ $(document).ready(function () {
             saveItem(newItem);
         }
         this.reset();
-        $(`#itemId`).val('');
+        // $(`#itemId`).val('');
         loadItems()
     })
 });

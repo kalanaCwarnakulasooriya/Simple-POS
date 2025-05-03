@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #000000;
+    position: fixed;
+    width: 100%;
+    height: 8vh;
+    z-index: 1;
+}
+
+header .system-name {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+header ul {
+    margin-right: 10px;
+    list-style: none;
+    display: flex;
+    gap: 2%;
+}
+
+header ul li {
+    background-color: #000000;
+    font-size: 95%;
+    cursor: pointer;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all ease-in-out 0.25s;
+}
+
+header ul li a:hover {
+    color: #e0ce0d;
+}
+
+header ul li a {
+    color: #ffffff;
+}
+
+#home-page > div {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    padding: 0;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border-radius: 20px;
+    border: none;
+    color: #313131;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all ease-in-out 0.25s;
+}
+
+.carousel-control:hover {
+    background-color: #ffffff56;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 34px;
+}
+
+form div input,
+select {
+    padding: 10px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+}
+
+.buttons {
+    flex-direction: row;
+    font-size: 18px !important;
+    /* gap: 0; */
+}
+
+.buttons button {
+    padding: 12px 21px;
+    background-color: #c4c4c4;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all ease-in-out 0.25s;
+}
+
+.action-buttons {
+    padding: 6px 12px;
+    background-color: #c4c4c4;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all ease-in-out 0.25s;
+}
+
+.action-buttons:hover {
+    background-color: aqua;
+    border-radius: 5px;
+}
+
+.buttons > :first-child:hover {
+    background-color: #56abf6;
+    border-radius: 12px;
+}
+
+.buttons > :nth-child(2):hover {
+    background-color: #24a746;
+    border-radius: 12px;
+}
+
+.buttons > :nth-child(3):hover {
+    background-color: #db3843;
+    border-radius: 12px;
+}
+
+.buttons > :nth-child(4):hover {
+    background-color: #dcaa13;
+    border-radius: 12px;
+}
+
+#customer-manage table {
+    margin-left: 50px;
+    border-collapse: collapse;
+}
+
+#customer-manage th,
+#customer-manage td{
+    border: 1px solid #c4c4c4;
+    width: 20vw;
+    height: 4vw;
+    text-align: center;
+}
+
+#customer-manage th {
+    background-color: #000000;
+    color: #eaeaea;
+}
+
+.tableRow {
+    height: auto;
+}
+
+.table > div,
+.tableRows > div {
+    display: flex;
+}
+
+.table,
+.tableRows {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5.7vw;
+}
+
+.table > div > div,
+.tableRows > div > div {
+    width: 18vw;
+    height: 4vw;
+    border: 1px solid #2c2b2b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tableRows > div > div {
+    width: 20vw;
+}
+
+section > div {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    font-size: 18px;
+    padding: 1vw;
+}
+
+section > :first-child > div {
+    margin-top: 8vh;
+}

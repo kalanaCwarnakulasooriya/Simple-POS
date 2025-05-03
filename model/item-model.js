@@ -15,6 +15,10 @@ function getItems() {
     return db.items;
 }
 
+function removeItem(id) {
+    db.items = db.items.filter((i) => i.id !== id);
+}
+
 function updateItem(updateItem) {
     const index = db.items.findIndex((i) => i.id === updateItem.id);
     if (index !== -1) {

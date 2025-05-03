@@ -2,36 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Customer Section</title>
+    <title>POS</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<sction id="customer-section">
+<header>
+    <div class="system-name">POS</div>
+
+    <ul>
+        <li><a href="#home-page" class="nav-link">Home</a></li>
+        <li><a href="#customer-manage" class="nav-link">Customer</a></li>
+        <li><a href="#item-manage" class="nav-link">Item</a></li>
+        <li>
+            <a href="#OrderManage" class="nav-link orderManageBtn">Orders</a>
+        </li>
+    </ul>
+</header>
+
+<section id="home-page">
     <div>
-        <h1>Customer Management</h1>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/assets/img/POS-Carousel-Image-1.jpeg" alt="Food market image"/>
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/img/POS-Carousel-Image-2.jpeg" alt="Customer in the market image"/>
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/img/POS-Carousel-Image-3.png" alt="Grocery items image"/>
+                </div>
+            </div>
 
-        <form id="customer-form">
-            <input type="hidden" id="customerId">
-            <input  type="text" id="name" placeholder="Customer Name" required>
-            <input  type="email" id="email" placeholder="Email" required>
-            <button type="submit">Save</button>
-        </form>
-
-        <table id="customer-table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody id="customer-list"></tbody>
-        </table>
+            <button class="carousel-control prev" onclick="prevSlide()">
+                &#10094;
+            </button>
+            <button class="carousel-control next" onclick="nextSlide()">
+                &#10095;
+            </button>
+        </div>
     </div>
-</sction>
+</section>
 
-<section id="item-section">
+<section id="customer-manage">
+    <div>
+        <div>
+            <h1 class="title">Customer Management</h1>
+
+            <form id="customer-form">
+                <div>
+                    <label for="customerId">Customer ID</label>
+                    <input type="text" id="customerId">
+                </div>
+                <div>
+                    <label for="name">Customer Name</label>
+                    <input type="text" id="name" placeholder="Customer Name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="save">Save</button>
+                    <button class="update">Update</button>
+                    <button class="remove">Remove</button>
+                    <button class="clear">Clear All</button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <table id="customer-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="table-row"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section id="item-manage">
     <div>
         <h1>Item Management</h1>
 
@@ -58,6 +115,33 @@
     </div>
 </section>
 
+<section id="order-manage">
+    <div>
+        <h1>Order Management</h1>
+
+        <form id="order-form">
+            <input type="text" id="order-customerId" placeholder="Customer ID" required>
+            <input type="text" id="order-customer-name" placeholder="Customer Name" required>
+            <input type="text" id="order-itemId" placeholder="Item ID" required>
+            <input type="text" id="order-item-name" placeholder="Item Name" required>
+            <input type="number" id="order-quantity" placeholder="Quantity" required>
+            <button type="submit">Save</button>
+        </form>
+
+        <table id="order-table">
+            <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Item ID</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="order-list"></tbody>
+        </table>
+    </div>
+</section>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="db/db.js"></script>
@@ -65,5 +149,6 @@
 <script src="model/item-model.js"></script>
 <script src="controller/customer-controller.js"></script>
 <script src="controller/item-controller.js"></script>
+<script src="controller/index-controller.js"></script>
 </body>
 </html>

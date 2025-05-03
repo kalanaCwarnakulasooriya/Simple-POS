@@ -1,12 +1,12 @@
 const db = {
     customers: [
         {
-            id: '1',
+            id: 'C001',
             name: 'Kalana Warnakulasooriya',
             email: 'kalana@example.com'
         },
         {
-            id: '2',
+            id: 'C002',
             name: 'Chamath Rajapaksa',
             email: 'chamath@example.com'
         }
@@ -24,6 +24,7 @@ const db = {
             quantity: 70,
             price: 110
         }
-    ]
+    ],
+    orders: []
 }
 

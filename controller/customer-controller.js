@@ -1,22 +1,59 @@
 $(document).ready(function () {
     loadCustomers();
+    genarateCustomerId();
 
-    $(`#customer-form`).on(`submit`,function (e){
+    $(`.save`).on(`click`,function (e){
         e.preventDefault();
         const id = $(`#customerId`).val();
         const name = $(`#name`).val();
         const email = $(`#email`).val();
 
-        if (id) {
-            updateCustomer(new CustomerModel(id, name, email));
-        }else {
-            const newCustomer = new CustomerModel(Date.now().toString(), name, email);
-            saveCustomer(newCustomer);
+        if (!name || !email) {
+            alert('Please fill name and email.');
+            return;
         }
-        this.reset();
-        $(`#customerId`).val('');
+
+        if (getCustomerById()) {
+            alert('Customer ID already exists. Please click "Update" to modify.');
+            return;
+        }
+
+        const newCustomer = new CustomerModel(id, name, email);
+        saveCustomer(newCustomer);
+
+        resetForm();
         loadCustomers();
-    })
+        genarateCustomerId();
+    });
+
+    $(`.update`).on(`click`,function (e){
+        e.preventDefault();
+        const id = $('#customerId').val();
+        const name = $('#name').val();
+        const email = $('#email').val();
+
+        updateCustomer(new CustomerModel(id, name, email));
+
+        resetForm();
+        loadCustomers();
+        genarateCustomerId();
+    });
+
+    $(`.remove`).on(`click`,function (e){
+        e.preventDefault();
+        const id = $('#customerId').val();
+
+        removeCustomer(id);
+        resetForm();
+        loadCustomers();
+        genarateCustomerId();
+    });
+
+    $(`.clear`).on(`click`,function (e){
+        e.preventDefault();
+        resetForm();
+        genarateCustomerId();
+    });
 });
 
 function loadCustomers() {
@@ -30,11 +67,10 @@ function loadCustomers() {
             <td>${customer.name}</td>
             <td>${customer.email}</td>
             <td>
-            <button onclick = "editCustomer('${customer.id}')" type = "button">Edit</button>
-            <button onclick = "deleteCustomer('${customer.id}')" type = "button">Delete</button>
+            <button class="action-buttons" onclick = "editCustomer('${customer.id}')" type = "button">Edit</button>
             </td>
-        </tr>`)
-    })
+        </tr>`);
+    });
 }
 
 function editCustomer(id){
@@ -46,7 +82,21 @@ function editCustomer(id){
     }
 }
 
-function deleteCustomer(id){
-    removeCustomer(id);
-    loadCustomers();
+function genarateCustomerId() {
+    const prefix = 'C0';
+    let nextNumber = 1;
+
+    if (db.customers.length > 0) {
+        const lastCustomer = db.customers[db.customers.length - 1].id;
+        const lastNumber = parseInt(lastCustomer.substring(1));
+        nextNumber = lastNumber + 1;
+    }
+
+    const newId = prefix + nextNumber.toString().padStart(2, '0');
+    $('#customerId').val(newId);
+}
+
+function resetForm() {
+    $('#customer-form')[0].reset();
+    $('#customerId').val('');
 }

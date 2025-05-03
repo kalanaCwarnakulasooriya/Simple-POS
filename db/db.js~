@@ -14,16 +14,17 @@ const db = {
     items: [
         {
             id: '1',
-            name: 'Item 1',
-            quantity: 10,
-            price: 100
+            name: 'Shampoo',
+            quantity: 50,
+            price: 180
         },
         {
             id: '2',
-            name: 'Item 2',
-            quantity: 20,
-            price: 200
+            name: 'Soap',
+            quantity: 70,
+            price: 110
         }
-    ]
+    ],
+    orders: []
 }
 
