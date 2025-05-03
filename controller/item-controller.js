@@ -2,23 +2,60 @@ $(document).ready(function () {
     loadItems();
     genarateItemId();
 
-    $(`#item-form`).on(`submit`,function (e){
+    $(`.save-item`).on(`click`,function (e){
         e.preventDefault();
         const id = $(`#itemId`).val();
         const name = $(`#item-name`).val();
         const quantity = $(`#quantity`).val();
         const price = $(`#price`).val();
 
-        if (id) {
-            updateItem(new ItemModel(id, name, quantity, price));
-        }else {
-            const newItem = new ItemModel(Date.now().toString(), name, quantity, price);
-            saveItem(newItem);
+        if (!name || !quantity || !price) {
+            alert('Please fill name, quantity and price.');
+            return;
         }
-        this.reset();
-        $(`#itemId`).val('');
+
+        if (getItemById(id)) {
+            alert('Item ID already exists. Please click "Update" to modify.');
+            return;
+        }
+
+        const newItem = new ItemModel(id, name, quantity, price);
+        saveItem(newItem);
+
+        resetForm();
         loadItems()
-    })
+        genarateItemId();
+    });
+
+    $(`.update-item`).on(`click`,function (e){
+        e.preventDefault();
+        const id = $(`#itemId`).val();
+        const name = $(`#item-name`).val();
+        const quantity = $(`#quantity`).val();
+        const price = $(`#price`).val();
+
+        updateItem(new ItemModel(id, name, quantity, price));
+
+        resetForm();
+        loadItems();
+        genarateItemId();
+    });
+
+    $(`.remove-item`).on(`click`,function (e){
+        e.preventDefault();
+        const id = $(`#itemId`).val();
+
+        removeItem(id);
+        resetForm();
+        loadItems();
+        genarateItemId();
+    });
+
+    $(`.clear-item`).on(`click`,function (e){
+        e.preventDefault();
+        resetForm();
+        genarateItemId();
+    });
 });
 
 function loadItems() {
@@ -36,7 +73,7 @@ function loadItems() {
             <button class="action-buttons" onclick = "editItem('${item.id}')" type = "button">Edit</button>
             </td>
         </tr>`)
-    })
+    });
 }
 
 function editItem(id){
@@ -61,5 +98,10 @@ function genarateItemId() {
 
     const newId = prefixItem + nextNumber.toString().padStart(2, '0');
     $('#itemId').val(newId);
+}
+
+function resetForm() {
+    $('#item-form')[0].reset();
+    $('#itemId').val('');
 }
 
