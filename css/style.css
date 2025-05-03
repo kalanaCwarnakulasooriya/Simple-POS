@@ -179,25 +179,29 @@ select {
     border-radius: 12px;
 }
 
-#customer-manage table {
+#customer-manage table,
+#item-manage table{
     margin-left: 50px;
     border-collapse: collapse;
 }
 
 #customer-manage th,
-#customer-manage td{
+#customer-manage td,
+#item-manage th,
+#item-manage td{
     border: 1px solid #c4c4c4;
     width: 20vw;
     height: 4vw;
     text-align: center;
 }
 
-#customer-manage th {
+#customer-manage th,
+#item-manage th{
     background-color: #000000;
     color: #eaeaea;
 }
 
-.tableRow {
+.table-row {
     height: auto;
 }
 

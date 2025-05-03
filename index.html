@@ -82,7 +82,7 @@
                     <th>Actions</th>
                 </tr>
                 </thead>
-                <tbody id="table-row"></tbody>
+                <tbody class="table-row"></tbody>
             </table>
         </div>
     </div>
@@ -90,28 +90,50 @@
 
 <section id="item-manage">
     <div>
-        <h1>Item Management</h1>
+        <div>
+            <h1>Item Management</h1>
 
-        <form id="item-form">
-            <input type="hidden" id="itemId">
-            <input type="text" id="item-name" placeholder="Item Name" required>
-            <input type="number" id="quantity" placeholder="Quantity" required>
-            <input type="number" id="price" placeholder="Price" required>
-            <button type="submit">Save</button>
-        </form>
+            <form id="item-form">
+                <div>
+                    <label for="itemId">Item ID</label>
+                    <input type="text" id="itemId">
+                </div>
+                <div>
+                    <label for="name">Item Name</label>
+                    <input type="text" id="item-name" placeholder="Item Name" required>
+                </div>
+                <div>
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" placeholder="Quantity" required>
+                </div>
+                <div>
+                    <label for="price">Price</label>
+                    <input type="number" id="price" placeholder="Price" required>
+                </div>
 
-        <table id="item-table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody id="item-list"></tbody>
-        </table>
+                <div class="buttons">
+                    <button type="submit" class="save">Save</button>
+                    <button class="update">Update</button>
+                    <button class="remove">Remove</button>
+                    <button class="clear">Clear All</button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <table id="item-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="item-list"></tbody>
+            </table>
+        </div>
     </div>
 </section>
 
