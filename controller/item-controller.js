@@ -1,5 +1,6 @@
 $(document).ready(function () {
     loadItems();
+    genarateItemId();
 
     $(`#item-form`).on(`submit`,function (e){
         e.preventDefault();
@@ -32,25 +33,25 @@ function loadItems() {
             <td>${item.quantity}</td>
             <td>${item.price}</td>
             <td>
-            <button onclick = "editItem('${item.id}')" type = "button">Edit</button>
-            <button onclick = "deleteItem('${item.id}')" type = "button">Delete</button>
+            <button class="action-buttons" onclick = "editItem('${item.id}')" type = "button">Edit</button>
             </td>
         </tr>`)
     })
 }
 
-function editItem(id){
-    const item = getItemById(id);
-    if (item) {
-        $('#itemId').val(item.id);
-        $('#item-name').val(item.name);
-        $('#quantity').val(item.quantity);
-        $('#price').val(item.price);
-    }
-}
 
-function deleteItem(id){
-    removeItem(id);
-    loadItems();
+
+function genarateItemId() {
+    const prefixItem = 'C0';
+    let nextNumber = 1;
+
+    if (db.customers.length > 0) {
+        const lastCustomer = db.customers[db.customers.length - 1].id;
+        const lastNumber = parseInt(lastCustomer.substring(1));
+        nextNumber = lastNumber + 1;
+    }
+
+    const newId = prefixItem + nextNumber.toString().padStart(2, '0');
+    $('#itemId').val(newId);
 }
 

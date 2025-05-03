@@ -13,13 +13,13 @@ const db = {
     ],
     items: [
         {
-            id: '1',
+            id: 'C001',
             name: 'Shampoo',
             quantity: 50,
             price: 180
         },
         {
-            id: '2',
+            id: 'C002',
             name: 'Soap',
             quantity: 70,
             price: 110
