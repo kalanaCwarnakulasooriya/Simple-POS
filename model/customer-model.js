@@ -1,6 +1,10 @@
-const db = {
-    customers: []
-};
+class CustomerModel {
+    constructor(id, name, email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+}
 
 function saveCustomer(customer) {
     db.customers.push(customer);
@@ -23,28 +27,4 @@ function updateCustomer(updateCustomer) {
 
 function getCustomerById(id) {
     return db.customers.find((c) => c.id === id);
-}
-
-const db = {
-    items: []
-};
-
-function saveItem(item) {
-
-}
-
-function getItems() {
-    return db.items;
-}
-
-function removeItem(id) {
-
-}
-
-function updateItem(updateItem) {
-
-}
-
-function getItemById(id) {
-
 }

@@ -6,57 +6,64 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div>
-    <h1>Customer Management</h1>
+<sction id="customer-section">
+    <div>
+        <h1>Customer Management</h1>
 
-    <form id="customer-form">
-      <input type="hidden" id="customerId">
-      <input  type="text" id="name" placeholder="Customer Name" required>
-      <input  type="email" id="email" placeholder="Email" required>
-      <button type="submit">Save</button>
-    </form>
+        <form id="customer-form">
+            <input type="hidden" id="customerId">
+            <input  type="text" id="name" placeholder="Customer Name" required>
+            <input  type="email" id="email" placeholder="Email" required>
+            <button type="submit">Save</button>
+        </form>
 
-    <table id="customer-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="customer-list"></tbody>
-    </table>
-</div>
+        <table id="customer-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="customer-list"></tbody>
+        </table>
+    </div>
+</sction>
 
-<div>
-    <h2>Item Management</h2>
+<section id="item-section">
+    <div>
+        <h1>Item Management</h1>
 
-    <form id="item-form">
-      <input type="hidden" id="itemId">
-      <input type="text" id="item-name" placeholder="Item Name" required>
-      <input type="number" id="quantity" placeholder="Quantity" required>
-      <input type="number" id="price" placeholder="Price" required>
-      <button type="submit">Save</button>
-    </form>
+        <form id="item-form">
+            <input type="hidden" id="itemId">
+            <input type="text" id="item-name" placeholder="Item Name" required>
+            <input type="number" id="quantity" placeholder="Quantity" required>
+            <input type="number" id="price" placeholder="Price" required>
+            <button type="submit">Save</button>
+        </form>
 
-    <table id="item-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="item-list"></tbody>
-    </table>
-</div>
+        <table id="item-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="item-list"></tbody>
+        </table>
+    </div>
+</section>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="js/db.js"></script>
-<script src="js/customer-model.js"></script>
-<script src="js/customer-controller.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="db/db.js"></script>
+<script src="model/customer-model.js"></script>
+<script src="model/item-model.js"></script>
+<script src="controller/customer-controller.js"></script>
+<script src="controller/item-controller.js"></script>
 </body>
 </html>

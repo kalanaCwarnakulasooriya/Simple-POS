@@ -1,5 +1,23 @@
 $(document).ready(function () {
     loadItems();
+
+    $(`#item-form`).on(`submit`,function (e){
+        e.preventDefault();
+        const id = $(`#itemId`).val();
+        const name = $(`#item-name`).val();
+        const quantity = $(`#quantity`).val();
+        const price = $(`#price`).val();
+
+        if (id) {
+            updateItem(new ItemModel(id, name, quantity, price));
+        }else {
+            const newItem = new ItemModel(Date.now().toString(), name, quantity, price);
+            saveItem(newItem);
+        }
+        this.reset();
+        $(`#itemId`).val('');
+        loadItems()
+    })
 });
 
 function loadItems() {

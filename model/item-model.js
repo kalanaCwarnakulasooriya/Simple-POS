@@ -6,3 +6,12 @@ class ItemModel {
         this.price = price;
     }
 }
+
+function saveItem(item) {
+    db.items.push(item);
+}
+
+function getItems() {
+    return db.items;
+}
+
