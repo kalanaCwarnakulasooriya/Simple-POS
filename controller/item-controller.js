@@ -40,7 +40,13 @@ function loadItems() {
 }
 
 function editItem(id){
-
+    const item = getItemById(id);
+    if (item) {
+        $('#itemId').val(item.id);
+        $('#item-name').val(item.name);
+        $('#quantity').val(item.quantity);
+        $('#price').val(item.price);
+    }
 }
 
 function deleteItem(id){

@@ -15,3 +15,6 @@ function getItems() {
     return db.items;
 }
 
+function getItemById(id) {
+    return db.items.find((i) => i.id === id);
+}
